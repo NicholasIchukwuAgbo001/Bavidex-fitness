@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useRef, useState } from "react";
 import { uploadToSupabaseStorage } from "../lib/supabaseClient";
 import { Upload, Image, X, RefreshCw, Check, AlertCircle } from "lucide-react";

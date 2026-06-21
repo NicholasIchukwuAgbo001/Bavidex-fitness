@@ -158,7 +158,7 @@ export default function App() {
     logoutAdmin();
     setAdminUser(null);
     triggerToast("Logged out of Admin Session successfully", "success");
-    handleNavigate("#/");
+    handleNavigate("#/admin/login");
   };
 
   // Auto-generate Slug on Type (Exercise Bikes -> exercise-bikes)
@@ -340,8 +340,8 @@ export default function App() {
             className="fixed top-24 right-4 md:right-8 z-100 max-w-sm pointer-events-auto"
           >
             <div className={`p-4 rounded-lg shadow-2xl border flex items-start space-x-3 ${toastMessage.type === "success"
-                ? "bg-neutral-900 border-emerald-500/30 text-emerald-400"
-                : "bg-neutral-900 border-red-500/30 text-red-400"
+              ? "bg-neutral-900 border-emerald-500/30 text-emerald-400"
+              : "bg-neutral-900 border-red-500/30 text-red-400"
               }`}>
               <CheckCircle className={`h-5 w-5 shrink-0 mt-0.5 ${toastMessage.type === "success" ? "text-emerald-500" : "text-red-500"}`} />
               <div>
