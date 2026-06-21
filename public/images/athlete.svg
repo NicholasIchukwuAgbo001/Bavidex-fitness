@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="athlete-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#3b0712"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#121212" rx="16" />
+  
+  <circle cx="400" cy="300" r="300" fill="url(#athlete-glow)" />
+
+  <g opacity="0.1" stroke="#ef4444" stroke-width="1.5">
+    <ellipse cx="400" cy="300" rx="350" ry="250" fill="none" stroke-dasharray="10 20" />
+    <circle cx="400" cy="300" r="180" fill="none" />
+  </g>
+
+  <!-- Abstract Vector Running/Flexing Athlete Shape representing strength and speed -->
+  <g transform="translate(180, 100)">
+    <!-- Base shadows -->
+    <ellipse cx="220" cy="380" rx="140" ry="15" fill="#000000" opacity="0.6" />
+    
+    <!-- Stylized body polygon composition -->
+    <!-- Back Leg -->
+    <path d="M 120 380 L 170 300 L 220 300 L 145 380 Z" fill="#1f070b" stroke="#7f1d1d" stroke-width="2" />
+    
+    <!-- Torso -->
+    <path d="M 180 180 L 250 140 L 290 220 L 200 260 Z" fill="url(#cyber-grad)" stroke="#ef4444" stroke-width="4" />
+    
+    <!-- Head / Helmet (Dynamic Forward-Leaning) -->
+    <polygon points="260,110 300,105 295,135 255,130" fill="#ffffff" />
+    <polygon points="280,115 315,115 295,130" fill="#ef4444" />
+
+    <!-- Front Leg (Piston Running Motion) -->
+    <path d="M 230 260 L 320 310 L 300 375 L 260 375 Z" fill="#4c0519" stroke="#ef4444" stroke-width="3" />
+    
+    <!-- Front Arm (Reaching Forward) -->
+    <path d="M 250 150 L 340 180 L 310 195 Z" fill="#f43f5e" />
+    <circle cx="340" cy="180" r="8" fill="#ffffff" />
+
+    <!-- Back Arm (Swung Backward) -->
+    <path d="M 190 190 L 130 240 L 145 255 Z" fill="#1c1917" stroke="#44403c" stroke-width="2" />
+
+    <!-- Dynamic Speed Trails -->
+    <path d="M 80 140 L 170 140 M 40 200 L 170 200 M 60 260 L 170 260" stroke="#ef4444" stroke-width="4" stroke-linecap="round" stroke-dasharray="20 15" opacity="0.8" />
+  </g>
+
+  <!-- Title overlay -->
+  <text x="50" y="80" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="2">ATHLETE FOCUS</text>
+  <text x="50" y="110" font-family="'Inter', sans-serif" font-weight="500" font-size="14" fill="#ef4444" letter-spacing="4">ELITE STRENGTH &amp; TRAINING</text>
+</svg>

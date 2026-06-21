@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="cardio-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#404040"/>
+      <stop offset="50%" stop-color="#171717"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#121212" rx="16" />
+  <!-- Grid -->
+  <g opacity="0.15">
+    <path d="M 0 100 L 800 100 M 0 200 L 800 200 M 0 300 L 800 300 M 0 400 L 800 400 M 0 500 L 800 500" stroke="#404040" stroke-width="1" />
+    <path d="M 100 0 L 100 600 M 200 0 L 200 600 M 300 0 L 300 600 M 400 0 L 400 600 M 500 0 L 500 600 M 600 0 L 600 600 M 700 0 L 700 600" stroke="#404040" stroke-width="1" />
+  </g>
+  
+  <!-- Red Ambient Glow -->
+  <circle cx="480" cy="300" r="250" fill="url(#cardio-glow)" />
+
+  <!-- Treadmill Vector Illustration -->
+  <g transform="translate(60, 40)">
+    <!-- Base Platform -->
+    <path d="M 100 420 L 550 420 Q 580 420 580 440 L 580 450 L 80 450 L 80 430 Q 80 420 100 420 Z" fill="url(#metal)" stroke="#262626" stroke-width="3" />
+    <!-- Running Belt Track Inside -->
+    <rect x="120" y="425" width="420" height="15" fill="#030303" rx="4" />
+    <line x1="160" y1="432" x2="500" y2="432" stroke="#ef4444" stroke-width="2" stroke-dasharray="10 15" opacity="0.6" />
+
+    <!-- Incline Engine & Frame uprights -->
+    <path d="M 110 430 L 190 200 L 210 200 L 140 430 Z" fill="#262626" />
+    <path d="M 130 430 L 200 120 L 230 120 L 160 430 Z" fill="url(#neon)" />
+    
+    <!-- Display Console -->
+    <rect x="170" y="80" width="130" height="50" fill="#0f0f0f" rx="6" stroke="#ef4444" stroke-width="2" transform="rotate(-15 170 80)" />
+    <!-- Console screen lines -->
+    <rect x="185" y="85" width="90" height="25" fill="#1c0707" rx="2" transform="rotate(-15 170 80)" />
+    <path d="M 195 98 L 220 90 L 240 100 L 265 92" stroke="#ef4444" stroke-width="2" fill="none" transform="rotate(-15 170 80)" />
+
+    <!-- Handrails -->
+    <path d="M 230 140 L 360 140 L 360 180" fill="none" stroke="#404040" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 230 140 L 360 140 L 360 180" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Wheels and base supports -->
+    <circle cx="110" cy="455" r="15" fill="#171717" stroke="#404040" stroke-width="2" />
+    <circle cx="110" cy="455" r="6" fill="#ef4444" />
+    <circle cx="550" cy="455" r="15" fill="#171717" stroke="#404040" stroke-width="2" />
+  </g>
+
+  <!-- Speed Dynamic Lines -->
+  <g stroke="#ef4444" stroke-width="3" opacity="0.4" stroke-linecap="round">
+    <line x1="580" y1="465" x2="680" y2="465" />
+    <line x1="610" y1="485" x2="695" y2="485" stroke-width="2" />
+    <line x1="560" y1="505" x2="640" y2="505" stroke-width="1.5" />
+  </g>
+
+  <!-- Core Text Label -->
+  <text x="50" y="80" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="2">CARDIO</text>
+  <text x="50" y="110" font-family="'Inter', sans-serif" font-weight="500" font-size="14" fill="#ef4444" letter-spacing="4">TREADMILLS &amp; CYCLES</text>
+</svg>

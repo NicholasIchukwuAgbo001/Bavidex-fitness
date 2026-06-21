@@ -1,0 +1,6 @@
+{
+  "name": "Bavidex Fitness Store CMS",
+  "description": "Premium product showroom catalog and admin CMS for Bavidex Fitness Store (Nigeria), fully connected with Supabase.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

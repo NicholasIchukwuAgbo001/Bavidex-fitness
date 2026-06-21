@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bike-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="neon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#121212" rx="16" />
+  
+  <!-- Ambient Red background -->
+  <circle cx="400" cy="300" r="280" fill="url(#bike-glow)" />
+
+  <!-- Grid lines -->
+  <g opacity="0.1" stroke="#ffffff" stroke-width="1">
+    <path d="M 0 150 L 800 150 M 0 300 L 800 300 M 0 450 L 800 450" />
+    <path d="M 200 0 L 200 600 M 400 0 L 400 600 M 600 0 L 600 600" />
+  </g>
+
+  <!-- Spin Bike Vector Detail -->
+  <g transform="translate(100, 50)">
+    <!-- Base Stabilizers -->
+    <path d="M 150 450 L 450 450" stroke="#171717" stroke-width="20" stroke-linecap="round" />
+    <path d="M 150 450 L 450 450" stroke="#ef4444" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Flywheel -->
+    <circle cx="200" cy="380" r="80" fill="#1f1f1f" stroke="#404040" stroke-width="8" />
+    <circle cx="200" cy="380" r="70" fill="#090909" stroke="#ef4444" stroke-width="4" stroke-dasharray="15 8" />
+    <circle cx="200" cy="380" r="25" fill="url(#neon-grad)" />
+
+    <!-- Main Frame tube -->
+    <path d="M 200 380 L 360 200 L 390 350 L 300 450" fill="none" stroke="#262626" stroke-width="22" stroke-linejoin="round" />
+    <path d="M 200 380 L 360 200 L 390 350 L 300 450" fill="none" stroke="url(#neon-grad)" stroke-width="8" stroke-linejoin="round" />
+
+    <!-- Seat post & Saddle -->
+    <line x1="360" y1="200" x2="380" y2="140" stroke="#404040" stroke-width="14" />
+    <path d="M 350 140 L 410 140 Q 420 140 405 155 L 360 155 Z" fill="#171717" stroke="#ef4444" stroke-width="2" />
+
+    <!-- Handlebar Post & Console -->
+    <line x1="200" y1="380" x2="160" y2="180" stroke="#404040" stroke-width="14" />
+    <path d="M 140 180 L 190 140 L 160 120" fill="none" stroke="#262626" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="160" cy="120" r="10" fill="#ef4444" />
+
+    <!-- Pedals & Chain Guard -->
+    <circle cx="340" cy="360" r="35" fill="#262626" />
+    <line x1="340" y1="360" x2="310" y2="310" stroke="#ef4444" stroke-width="8" stroke-linecap="round" />
+    <rect x="290" y="300" width="35" height="15" fill="#111111" rx="4" stroke="#404040" />
+
+    <line x1="340" y1="360" x2="370" y2="410" stroke="#404040" stroke-width="8" stroke-linecap="round" />
+    <rect x="355" y="405" width="35" height="15" fill="#111111" rx="4" stroke="#404040" />
+  </g>
+
+  <!-- Typography elements -->
+  <text x="50" y="80" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="2">STATIONARY BIKES</text>
+  <text x="50" y="110" font-family="'Inter', sans-serif" font-weight="500" font-size="14" fill="#ef4444" letter-spacing="4">CARDIO PERFORMANCE</text>
+</svg>

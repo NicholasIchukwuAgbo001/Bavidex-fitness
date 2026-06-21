@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="gear-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="neon-rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#7f1d1d"/>
+      <stop offset="100%" stop-color="#121212"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#121212" rx="16" />
+  
+  <circle cx="400" cy="300" r="280" fill="url(#gear-glow)" />
+
+  <!-- Diagonal high-intensity lines -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.1">
+    <line x1="0" y1="0" x2="800" y2="600" />
+    <line x1="100" y1="0" x2="900" y2="600" />
+    <line x1="-100" y1="0" x2="700" y2="600" />
+  </g>
+
+  <!-- Fitness Watch & Accessories Graphic -->
+  <g transform="translate(400, 300)">
+    <!-- Tech Rings -->
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#262626" stroke-width="2" />
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#ef4444" stroke-width="1" stroke-dasharray="8 8" opacity="0.4" />
+    <circle cx="0" cy="0" r="120" fill="none" stroke="url(#neon-rim)" stroke-width="6" stroke-dasharray="140 180" />
+
+    <!-- Smart Gym Gear Dial -->
+    <rect x="-40" y="-120" width="80" height="240" fill="#1f1f1f" stroke="#000" stroke-width="3" rx="10" transform="rotate(30)" />
+    <!-- Straps -->
+    <rect x="-35" y="-115" width="70" height="230" fill="#2d0a0a" rx="8" transform="rotate(30)" />
+    <rect x="-35" y="-115" width="70" height="230" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 12" rx="8" transform="rotate(30)" />
+
+    <!-- Digital Dial face -->
+    <circle cx="0" cy="0" r="65" fill="#0c0c0c" stroke="#333" stroke-width="5" />
+    <circle cx="0" cy="0" r="55" fill="#111" stroke="#ef4444" stroke-width="2.5" />
+    
+    <!-- Heartbeat visualizer on watch face -->
+    <path d="M -45 5 L -20 5 L -12 -15 L -2 20 L 8 -25 L 18 12 L 25 5 L 45 5" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="2" cy="20" r="3" fill="#ffffff" />
+    
+    <!-- Core BPM text -->
+    <text x="0" y="-20" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#ef4444" text-anchor="middle" letter-spacing="1">BPM 145</text>
+    <text x="0" y="38" font-family="'Inter', sans-serif" font-weight="800" font-size="11" fill="#888" text-anchor="middle" letter-spacing="1">HIIT TRACKING</text>
+  </g>
+
+  <!-- Bottom Details -->
+  <text x="50" y="80" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="2">FITNESS STRAPS &amp; GEAR</text>
+  <text x="50" y="110" font-family="'Inter', sans-serif" font-weight="500" font-size="14" fill="#ef4444" letter-spacing="4">ESSENTIAL WORKOUT BODYWEAR</text>
+</svg>

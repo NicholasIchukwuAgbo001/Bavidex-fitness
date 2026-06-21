@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#262626" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <!-- Main Background -->
+  <rect width="1600" height="900" fill="#0a0a0a" />
+  <!-- Glowing Gradients -->
+  <circle cx="800" cy="450" r="700" fill="url(#glow)" />
+  <circle cx="200" cy="200" r="400" fill="url(#glow)" />
+  <circle cx="1400" cy="700" r="500" fill="url(#glow)" />
+  <!-- Tech Grid Overlay -->
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.6" />
+  
+  <!-- Decorative Abstract Geometry -->
+  <g stroke="url(#brand-grad)" stroke-width="2" fill="none" opacity="0.15">
+    <circle cx="800" cy="450" r="300" stroke-dasharray="10 15" />
+    <circle cx="800" cy="450" r="320" />
+    <line x1="0" y1="450" x2="1600" y2="450" />
+    <line x1="800" y1="0" x2="800" y2="900" />
+    <polygon points="800,250 973,550 627,550" stroke-dasharray="5 5" />
+  </g>
+  
+  <!-- Active Tech Lines -->
+  <path d="M 100 150 L 300 150 L 350 200" stroke="#dc2626" stroke-width="4" fill="none" opacity="0.8" />
+  <circle cx="350" cy="200" r="4" fill="#dc2626" />
+  
+  <path d="M 1500 750 L 1300 750 L 1250 700" stroke="#dc2626" stroke-width="4" fill="none" opacity="0.8" />
+  <circle cx="1250" cy="700" r="4" fill="#dc2626" />
+
+  <!-- Centered Branding Graphic -->
+  <g transform="translate(800, 450)" text-anchor="middle">
+    <path d="M-60,-80 L60,-80 L80,-40 L-80,-40 Z" fill="url(#brand-grad)" opacity="0.8"/>
+    <text y="-52" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="12">BAVIDEX</text>
+    <text y="20" font-family="'Inter', sans-serif" font-weight="800" font-size="56" fill="#ffffff" letter-spacing="4">PREMIUM SHOWROOM</text>
+    <text y="70" font-family="'Inter', sans-serif" font-weight="500" font-size="16" fill="#ef4444" letter-spacing="8">HIGH PERFORMANCE EQUIPMENT</text>
+  </g>
+</svg>
