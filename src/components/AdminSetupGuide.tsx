@@ -107,12 +107,12 @@ CREATE POLICY "All public access to products images"
 -- =======================================================`;
 
   return (
-    <div id="admin-setup-guide" className="bg-neutral-900 border border-neutral-800 rounded p-6 text-white font-sans max-w-4xl mx-auto shadow-2xl">
+    <div id="admin-setup-guide" className="bg-neutral-900 border border-neutral-800 rounded p-4 sm:p-6 text-white font-sans max-w-4xl mx-auto shadow-2xl">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-4 border-b border-neutral-800 mb-6 gap-4">
         <div className="flex items-center space-x-3">
           <Database className="h-6 w-6 text-red-500 shrink-0" />
           <div>
-            <h2 className="text-lg font-black uppercase tracking-wider">
+            <h2 className="text-base sm:text-lg font-black uppercase tracking-wider">
               Supabase Connector Terminal
             </h2>
             <p className="text-xs text-neutral-400">
@@ -122,16 +122,16 @@ CREATE POLICY "All public access to products images"
         </div>
 
         {/* Real-time Status Badge */}
-        <div className="flex items-center space-x-2">
-          <div className="flex items-center bg-neutral-950 px-3 py-1.5 rounded border border-neutral-800 text-xs">
-            <Radio className={`h-3.5 w-3.5 mr-2 ${status.usingFallback ? "text-amber-500 animate-pulse" : "text-emerald-500 animate-pulse"}`} />
-            <span className="font-bold text-neutral-300">
-              State: {status.usingFallback ? "Online Fallback (Mock Active)" : "Connected to Supabase"}
+        <div className="flex items-center gap-2 w-full md:w-auto">
+          <div className="flex items-center bg-neutral-950 px-3 py-1.5 rounded border border-neutral-800 text-xs flex-1 md:flex-none min-w-0">
+            <Radio className={`h-3.5 w-3.5 mr-2 shrink-0 ${status.usingFallback ? "text-amber-500 animate-pulse" : "text-emerald-500 animate-pulse"}`} />
+            <span className="font-bold text-neutral-300 truncate">
+              {status.usingFallback ? "Fallback (Mock Active)" : "Connected to Supabase"}
             </span>
           </div>
           <button
             onClick={onCheckStatus}
-            className="bg-red-600 hover:bg-red-700 text-white font-black uppercase text-[10px] tracking-widest p-2 rounded flex items-center justify-center transition-colors shadow"
+            className="bg-red-600 hover:bg-red-700 text-white font-black uppercase text-[10px] tracking-widest p-2 rounded flex items-center justify-center transition-colors shadow shrink-0"
           >
             <RefreshCw className="h-3 w-3 stroke-[2.5]" />
           </button>
@@ -187,7 +187,7 @@ CREATE POLICY "All public access to products images"
           </div>
 
           <div className="relative bg-neutral-950 p-4 rounded border border-neutral-800">
-            <pre className="font-mono text-[10px] text-gray-300 overflow-x-auto max-h-72 leading-relaxed">
+            <pre className="font-mono text-[10px] text-gray-300 overflow-x-auto max-h-72 leading-relaxed whitespace-pre-wrap break-words">
               {postgresSQL}
             </pre>
           </div>

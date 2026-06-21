@@ -4,12 +4,12 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { 
-  fetchCategories, 
-  fetchProducts, 
-  saveCategory, 
-  deleteCategory, 
-  saveProduct, 
+import {
+  fetchCategories,
+  fetchProducts,
+  saveCategory,
+  deleteCategory,
+  saveProduct,
   deleteProduct,
   getSupabaseStatus,
   ensureCloudUrl
@@ -23,22 +23,22 @@ import ProductCard from "./components/ProductCard";
 import AdminSetupGuide from "./components/AdminSetupGuide";
 import ImageSourceSelector from "./components/ImageSourceSelector";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Search, 
-  Dumbbell, 
-  ChevronRight, 
-  Key, 
-  Plus, 
-  Edit2, 
-  Trash2, 
-  X, 
-  Settings, 
-  FolderPlus, 
-  TrendingUp, 
-  Eye, 
-  Folder, 
-  ShoppingBag, 
-  CheckCircle, 
+import {
+  Search,
+  Dumbbell,
+  ChevronRight,
+  Key,
+  Plus,
+  Edit2,
+  Trash2,
+  X,
+  Settings,
+  FolderPlus,
+  TrendingUp,
+  Eye,
+  Folder,
+  ShoppingBag,
+  CheckCircle,
   AlertTriangle,
   Sparkles
 } from "lucide-react";
@@ -62,7 +62,7 @@ export default function App() {
   // CRUD Admin Modals State
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
-  
+
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
@@ -328,22 +328,21 @@ export default function App() {
 
   // Render Core Layouts
   return (
-    <div className="min-h-screen bg-black text-gray-100 flex flex-col font-sans selection:bg-red-600 selection:text-white">
-      
+    <div className="min-h-screen bg-black text-gray-100 flex flex-col font-sans selection:bg-red-600 selection:text-white overflow-x-hidden">
+
       {/* Dynamic Toast Window */}
       <AnimatePresence>
         {toastMessage && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.9 }}
             className="fixed top-24 right-4 md:right-8 z-[100] max-w-sm pointer-events-auto"
           >
-            <div className={`p-4 rounded-lg shadow-2xl border flex items-start space-x-3 ${
-              toastMessage.type === "success" 
-                ? "bg-neutral-900 border-emerald-500/30 text-emerald-400" 
+            <div className={`p-4 rounded-lg shadow-2xl border flex items-start space-x-3 ${toastMessage.type === "success"
+                ? "bg-neutral-900 border-emerald-500/30 text-emerald-400"
                 : "bg-neutral-900 border-red-500/30 text-red-400"
-            }`}>
+              }`}>
               <CheckCircle className={`h-5 w-5 shrink-0 mt-0.5 ${toastMessage.type === "success" ? "text-emerald-500" : "text-red-500"}`} />
               <div>
                 <h5 className="font-extrabold text-xs uppercase tracking-wider text-white">System Broadcast</h5>
@@ -356,22 +355,26 @@ export default function App() {
 
       {/* Top Banner indicating Sandbox State */}
       {showDemoBanner && (
-        <div className="bg-gradient-to-r from-red-950 via-black to-red-950 text-[11px] text-center py-2 px-4 border-b border-red-900/40 relative flex items-center justify-center gap-2 flex-wrap">
-          <span className="inline-block h-2 w-2 rounded-full bg-red-600 animate-pulse" />
-          <span className="text-gray-300 font-medium">
-            <strong>Bavidex Nigeria Client Workspace:</strong> Authenticated on database cluster 
-            <code> {dbStatus.usingFallback ? "Sandboxed Sandbox Caching" : "Live Postgres Connected"}</code>
-          </span>
-          <span className="text-neutral-500">|</span>
-          <span className="text-red-400 font-extrabold uppercase tracking-widest bg-red-950/40 px-1.5 py-0.5 rounded border border-red-900/30">
-            Showroom Only - No Cart/Payments
-          </span>
-          <button 
-            onClick={() => setShowDemoBanner(false)} 
-            className="text-gray-400 hover:text-white transition-colors p-1"
+        <div className="bg-gradient-to-r from-red-950 via-black to-red-950 text-[11px] py-2 px-4 border-b border-red-900/40 relative flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 flex-wrap min-w-0">
+            <span className="inline-block h-2 w-2 shrink-0 rounded-full bg-red-600 animate-pulse" />
+            <span className="text-gray-300 font-medium hidden sm:inline">
+              <strong>Bavidex Nigeria Client Workspace:</strong> Authenticated on database cluster
+              <code> {dbStatus.usingFallback ? "Sandboxed Sandbox Caching" : "Live Postgres Connected"}</code>
+            </span>
+            <span className="text-gray-300 font-medium sm:hidden truncate">
+              <strong>Bavidex</strong> · <code>{dbStatus.usingFallback ? "Sandbox" : "Live Postgres"}</code>
+            </span>
+            <span className="text-red-400 font-extrabold uppercase tracking-widest bg-red-950/40 px-1.5 py-0.5 rounded border border-red-900/30 whitespace-nowrap text-[10px]">
+              Showroom Only
+            </span>
+          </div>
+          <button
+            onClick={() => setShowDemoBanner(false)}
+            className="text-gray-400 hover:text-white transition-colors p-1 shrink-0"
             title="Dismiss notification"
           >
-            <X className="h-3 w-3 inline" />
+            <X className="h-3 w-3" />
           </button>
         </div>
       )}
@@ -401,12 +404,12 @@ export default function App() {
               >
                 {/* Immersive Hero Banner with Real Gym Background */}
                 <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-neutral-950">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-102 filter grayscale hover:grayscale-0 transition-all duration-[2000ms]"
                     style={{ backgroundImage: "url('/images/hero_bg.jpg')" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black pointer-events-none" />
-                  
+
                   {/* Subtle dynamic backdrop layout animation lines */}
                   <div className="absolute inset-0 block bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-600/5 via-transparent to-transparent pointer-events-none" />
 
@@ -421,16 +424,16 @@ export default function App() {
                       <span>Welcome to Lagos' #1 Gym Showroom</span>
                     </motion.div>
 
-                    <motion.h1 
+                    <motion.h1
                       initial={{ opacity: 0, y: 35 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2, duration: 0.6 }}
-                      className="text-4xl sm:text-6xl md:text-7xl font-sans font-black tracking-tighter text-white uppercase leading-none"
+                      className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black tracking-tighter text-white uppercase leading-none"
                     >
                       Bavidex <span className="text-red-600 text-glow">Fitness</span>
                     </motion.h1>
 
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3, duration: 0.6 }}
@@ -442,7 +445,7 @@ export default function App() {
 
                   {/* Absolute Bottom Indicator Arrow with subtle bouncing motion */}
                   <div className="absolute bottom-10 inset-x-0 text-center hidden md:block">
-                    <motion.div 
+                    <motion.div
                       animate={{ y: [0, 8, 0] }}
                       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                       className="flex flex-col items-center justify-center space-y-1.5 cursor-pointer"
@@ -471,7 +474,7 @@ export default function App() {
                       </h2>
                       <div className="h-1 w-20 bg-red-600 mt-2 rounded" />
                     </div>
-                    
+
                     {/* Live search input box */}
                     <div className="mt-6 md:mt-0 relative max-w-md w-full">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
@@ -493,11 +496,11 @@ export default function App() {
                       {categories.map((cat) => {
                         const count = products.filter(p => p.category_id === cat.id).length;
                         return (
-                          <CategoryCard 
-                            key={cat.id} 
-                            category={cat} 
-                            onNavigate={handleNavigate} 
-                            productCount={count} 
+                          <CategoryCard
+                            key={cat.id}
+                            category={cat}
+                            onNavigate={handleNavigate}
+                            productCount={count}
                           />
                         );
                       })}
@@ -513,15 +516,15 @@ export default function App() {
                       <div className="text-xs bg-neutral-950 p-3 rounded border border-neutral-900 text-neutral-400">
                         Showing filtered equipment matches for "<strong className="text-white">{searchQuery}</strong>"
                       </div>
-                      
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {products.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).map((prod) => {
                           const cat = categories.find(c => c.id === prod.category_id);
                           return (
-                            <ProductCard 
-                              key={prod.id} 
-                              product={prod} 
-                              categoryName={cat?.name} 
+                            <ProductCard
+                              key={prod.id}
+                              product={prod}
+                              categoryName={cat?.name}
                             />
                           );
                         })}
@@ -616,7 +619,7 @@ export default function App() {
                   return (
                     <div className="space-y-10">
                       {/* Breadcrumbs */}
-                      <nav className="text-xs font-bold uppercase tracking-wider text-neutral-600 flex items-center space-x-2">
+                      <nav className="text-xs font-bold uppercase tracking-wider text-neutral-600 flex items-center flex-wrap gap-1.5">
                         <span className="hover:text-white cursor-pointer" onClick={() => handleNavigate("#/")}>
                           Showroom Base
                         </span>
@@ -628,17 +631,17 @@ export default function App() {
 
                       {/* Header isolated banner */}
                       <div className="relative h-64 rounded bg-neutral-900 border border-neutral-800 overflow-hidden flex items-center p-8 sm:p-12 shadow-2xl">
-                        <div 
+                        <div
                           className="absolute inset-0 bg-cover bg-center opacity-30 brightness-75 filter grayscale"
                           style={{ backgroundImage: `url(${activeCat.image_url})` }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none" />
-                        
+
                         <div className="relative z-10 max-w-xl">
                           <span className="text-red-500 font-extrabold text-[10px] uppercase tracking-[0.25em] block mb-2">
                             Bavidex Nigeria Professional Lineup
                           </span>
-                          <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mb-2">
+                          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white mb-2">
                             {activeCat.name} Showroom
                           </h1>
                           <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-medium">
@@ -701,7 +704,7 @@ export default function App() {
                 className="py-16 px-4 flex flex-col justify-center items-center flex-grow bg-neutral-950"
               >
                 <div className="max-w-md w-full bg-neutral-900 border border-neutral-800 rounded p-8 shadow-2xl relative overflow-hidden font-sans">
-                  
+
                   {/* Visual key header badge */}
                   <div className="absolute top-0 inset-x-0 h-1.5 bg-red-600" />
 
@@ -809,11 +812,10 @@ export default function App() {
                           <CheckCircle className="h-4 w-4 text-emerald-500" />
                           <span>Authorized Management Console</span>
                         </div>
-                        <h1 className="text-3xl font-black uppercase tracking-tight text-white mt-1">
-                          Terminal Hub Control
+                        <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mt-1 break-words">Terminal Hub Control
                         </h1>
                       </div>
-                      
+
                       <div className="flex items-center space-x-3 text-xs">
                         <span className="text-gray-400 font-semibold italic bg-neutral-950 border border-neutral-800 px-3.5 py-2 rounded">
                           Staff: {adminUser.email}
@@ -932,8 +934,7 @@ export default function App() {
                         <button onClick={() => handleNavigate("#/admin/dashboard")} className="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-red-500 transition-colors">
                           &larr; Return to Dashboard Hub
                         </button>
-                        <h1 className="text-2xl font-black uppercase tracking-tight text-white mt-1">
-                          Showroom Category Editor
+                        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mt-1 break-words">Showroom Category Editor
                         </h1>
                       </div>
 
@@ -946,17 +947,18 @@ export default function App() {
                       </button>
                     </div>
 
-                    {/* Table View structure */}
+                    {/* Responsive Categories List */}
                     <div className="bg-neutral-900 border border-neutral-800 rounded overflow-hidden">
                       <div className="p-4 bg-neutral-950 font-bold text-xs uppercase text-neutral-400 tracking-wider">
                         Dynamic Categories Registry ({categories.length})
                       </div>
-                      
-                      <div className="overflow-x-auto">
+
+                      {/* Desktop Table */}
+                      <div className="hidden md:block overflow-x-auto">
                         <table className="w-full text-left border-collapse text-xs font-sans">
                           <thead>
                             <tr className="border-b border-neutral-800 text-neutral-500 uppercase tracking-wider font-extrabold bg-neutral-900/60">
-                              <th className="p-4">Visual Icon/Img</th>
+                              <th className="p-4">Visual</th>
                               <th className="p-4">Category Name</th>
                               <th className="p-4">Public URL Slug</th>
                               <th className="p-4">Gear Count</th>
@@ -969,39 +971,20 @@ export default function App() {
                               return (
                                 <tr key={cat.id} className="hover:bg-neutral-800/30 transition-colors">
                                   <td className="p-4">
-                                    <img 
-                                      src={cat.image_url} 
-                                      alt={cat.name} 
-                                      className="w-12 h-12 rounded object-cover border border-neutral-800 bg-neutral-950" 
-                                    />
+                                    <img src={cat.image_url} alt={cat.name} className="w-12 h-12 rounded object-cover border border-neutral-800 bg-neutral-950" />
                                   </td>
                                   <td className="p-4">
-                                    <span className="font-extrabold text-white text-sm uppercase tracking-wide">
-                                      {cat.name}
-                                    </span>
+                                    <span className="font-extrabold text-white text-sm uppercase tracking-wide">{cat.name}</span>
                                   </td>
-                                  <td className="p-4 font-mono text-red-500 font-bold">
-                                    /categories/{cat.slug}
-                                  </td>
-                                  <td className="p-4 font-bold text-neutral-300">
-                                    {productCount} instock items
-                                  </td>
+                                  <td className="p-4 font-mono text-red-500 font-bold">/categories/{cat.slug}</td>
+                                  <td className="p-4 font-bold text-neutral-300">{productCount} items</td>
                                   <td className="p-4 text-right">
                                     <div className="inline-flex space-x-2">
-                                      <button
-                                        onClick={() => openEditCategoryModal(cat)}
-                                        className="bg-neutral-850 hover:bg-neutral-800 text-gray-300 font-bold py-1.5 px-3 rounded flex items-center space-x-1 border border-neutral-800"
-                                      >
-                                        <Edit2 className="h-3 w-3" />
-                                        <span>Edit</span>
+                                      <button onClick={() => openEditCategoryModal(cat)} className="bg-neutral-850 hover:bg-neutral-800 text-gray-300 font-bold py-1.5 px-3 rounded flex items-center space-x-1 border border-neutral-800">
+                                        <Edit2 className="h-3 w-3" /><span>Edit</span>
                                       </button>
-                                      
-                                      <button
-                                        onClick={() => handleDeleteCategoryClick(cat.id, cat.name)}
-                                        className="bg-red-950/20 hover:bg-red-600 hover:text-white text-red-400 font-bold py-1.5 px-3 rounded flex items-center space-x-1"
-                                      >
-                                        <Trash2 className="h-3 w-3" />
-                                        <span>Purge</span>
+                                      <button onClick={() => handleDeleteCategoryClick(cat.id, cat.name)} className="bg-red-950/20 hover:bg-red-600 hover:text-white text-red-400 font-bold py-1.5 px-3 rounded flex items-center space-x-1">
+                                        <Trash2 className="h-3 w-3" /><span>Purge</span>
                                       </button>
                                     </div>
                                   </td>
@@ -1017,6 +1000,36 @@ export default function App() {
                             )}
                           </tbody>
                         </table>
+                      </div>
+
+                      {/* Mobile Cards */}
+                      <div className="md:hidden divide-y divide-neutral-800/50">
+                        {categories.map((cat) => {
+                          const productCount = products.filter(p => p.category_id === cat.id).length;
+                          return (
+                            <div key={cat.id} className="p-4 flex items-center gap-3">
+                              <img src={cat.image_url} alt={cat.name} className="w-14 h-14 rounded object-cover border border-neutral-800 bg-neutral-950 shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <p className="font-extrabold text-white text-sm uppercase tracking-wide truncate">{cat.name}</p>
+                                <p className="font-mono text-red-500 text-[10px] font-bold truncate">/categories/{cat.slug}</p>
+                                <p className="text-neutral-400 text-[10px] font-bold mt-0.5">{productCount} items</p>
+                              </div>
+                              <div className="flex flex-col gap-1.5 shrink-0">
+                                <button onClick={() => openEditCategoryModal(cat)} className="bg-neutral-800 text-gray-300 font-bold py-1.5 px-3 rounded flex items-center gap-1 border border-neutral-700 text-xs">
+                                  <Edit2 className="h-3 w-3" /><span>Edit</span>
+                                </button>
+                                <button onClick={() => handleDeleteCategoryClick(cat.id, cat.name)} className="bg-red-950/20 text-red-400 font-bold py-1.5 px-3 rounded flex items-center gap-1 text-xs border border-red-900/20">
+                                  <Trash2 className="h-3 w-3" /><span>Purge</span>
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {categories.length === 0 && (
+                          <div className="p-8 text-center text-neutral-500 italic font-medium text-xs">
+                            No categories loaded. Tap 'Add Category' above to provision your first gym department catalog.
+                          </div>
+                        )}
                       </div>
                     </div>
                   </>
@@ -1048,8 +1061,7 @@ export default function App() {
                         <button onClick={() => handleNavigate("#/admin/dashboard")} className="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-red-500 transition-colors">
                           &larr; Return to Dashboard Hub
                         </button>
-                        <h1 className="text-2xl font-black uppercase tracking-tight text-white mt-1">
-                          Showroom Inventory Manager
+                        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mt-1 break-words">Showroom Inventory Manager
                         </h1>
                       </div>
 
@@ -1068,16 +1080,17 @@ export default function App() {
                         <span>Showroom Equipment listings ({products.length})</span>
                       </div>
 
-                      <div className="overflow-x-auto">
+                      {/* Desktop Table */}
+                      <div className="hidden md:block overflow-x-auto">
                         <table className="w-full text-left border-collapse text-xs font-sans">
                           <thead>
                             <tr className="border-b border-neutral-800 text-neutral-500 uppercase tracking-wider font-extrabold bg-neutral-900/60">
-                              <th className="p-4">Visual Icon</th>
-                              <th className="p-4">Gear Name / Description</th>
-                              <th className="p-4">Category Link</th>
-                              <th className="p-4">Price (Naira)</th>
-                              <th className="p-4">Showroom Stock</th>
-                              <th className="p-4 text-right">Console Tools</th>
+                              <th className="p-4">Visual</th>
+                              <th className="p-4">Gear Name</th>
+                              <th className="p-4">Category</th>
+                              <th className="p-4">Price (₦)</th>
+                              <th className="p-4">Stock</th>
+                              <th className="p-4 text-right">Tools</th>
                             </tr>
                           </thead>
                           <tbody className="divide-y divide-neutral-800/50">
@@ -1086,17 +1099,11 @@ export default function App() {
                               return (
                                 <tr key={prod.id} className="hover:bg-neutral-800/30 transition-colors">
                                   <td className="p-4">
-                                    <img 
-                                      src={prod.image_url} 
-                                      alt={prod.name} 
-                                      className="w-12 h-12 rounded object-cover border border-neutral-800 bg-neutral-950" 
-                                    />
+                                    <img src={prod.image_url} alt={prod.name} className="w-12 h-12 rounded object-cover border border-neutral-800 bg-neutral-950" />
                                   </td>
                                   <td className="p-4">
-                                    <span className="font-extrabold text-white text-sm uppercase tracking-wide block">
-                                      {prod.name}
-                                    </span>
-                                    <span className="text-[10px] text-neutral-500 tracking-wider">REF ID: {prod.id}</span>
+                                    <span className="font-extrabold text-white text-sm uppercase tracking-wide block">{prod.name}</span>
+                                    <span className="text-[10px] text-neutral-500 tracking-wider">REF: {prod.id}</span>
                                   </td>
                                   <td className="p-4">
                                     <span className="bg-neutral-950 text-neutral-400 px-2.5 py-1 rounded inline-block font-extrabold text-[10px] tracking-wider uppercase border border-neutral-800">
@@ -1111,32 +1118,21 @@ export default function App() {
                                   <td className="p-4">
                                     {prod.available ? (
                                       <span className="text-emerald-500 font-black uppercase text-[10px] tracking-widest flex items-center">
-                                        <span className="h-2 w-2 rounded-full bg-emerald-500 mr-2" />
-                                        In Stock
+                                        <span className="h-2 w-2 rounded-full bg-emerald-500 mr-2" />In Stock
                                       </span>
                                     ) : (
                                       <span className="text-red-500 font-black uppercase text-[10px] tracking-widest flex items-center">
-                                        <span className="h-2 w-2 rounded-full bg-red-600 mr-2" />
-                                        Out of Stock
+                                        <span className="h-2 w-2 rounded-full bg-red-600 mr-2" />Out of Stock
                                       </span>
                                     )}
                                   </td>
                                   <td className="p-4 text-right">
                                     <div className="inline-flex space-x-2">
-                                      <button
-                                        onClick={() => openEditProductModal(prod)}
-                                        className="bg-neutral-850 hover:bg-neutral-800 text-gray-300 font-bold py-1.5 px-3 rounded flex items-center space-x-1 border border-neutral-800"
-                                      >
-                                        <Edit2 className="h-3 w-3" />
-                                        <span>Edit</span>
+                                      <button onClick={() => openEditProductModal(prod)} className="bg-neutral-850 hover:bg-neutral-800 text-gray-300 font-bold py-1.5 px-3 rounded flex items-center space-x-1 border border-neutral-800">
+                                        <Edit2 className="h-3 w-3" /><span>Edit</span>
                                       </button>
-                                      
-                                      <button
-                                        onClick={() => handleDeleteProductClick(prod.id, prod.name)}
-                                        className="bg-red-950/20 hover:bg-red-600 hover:text-white text-red-400 font-bold py-1.5 px-3 rounded flex items-center space-x-1"
-                                      >
-                                        <Trash2 className="h-3 w-3" />
-                                        <span>Purge</span>
+                                      <button onClick={() => handleDeleteProductClick(prod.id, prod.name)} className="bg-red-950/20 hover:bg-red-600 hover:text-white text-red-400 font-bold py-1.5 px-3 rounded flex items-center space-x-1">
+                                        <Trash2 className="h-3 w-3" /><span>Purge</span>
                                       </button>
                                     </div>
                                   </td>
@@ -1152,6 +1148,51 @@ export default function App() {
                             )}
                           </tbody>
                         </table>
+                      </div>
+
+                      {/* Mobile Cards */}
+                      <div className="md:hidden divide-y divide-neutral-800/50">
+                        {products.map((prod) => {
+                          const correspondingCat = categories.find(cat => cat.id === prod.category_id);
+                          return (
+                            <div key={prod.id} className="p-4 flex items-start gap-3">
+                              <img src={prod.image_url} alt={prod.name} className="w-14 h-14 rounded object-cover border border-neutral-800 bg-neutral-950 shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <p className="font-extrabold text-white text-sm uppercase tracking-wide leading-tight line-clamp-2">{prod.name}</p>
+                                <p className="text-red-500 font-extrabold text-sm mt-0.5">
+                                  {new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", minimumFractionDigits: 0 }).format(prod.price)}
+                                </p>
+                                <div className="flex items-center gap-2 mt-1 flex-wrap">
+                                  <span className="bg-neutral-950 text-neutral-400 px-2 py-0.5 rounded text-[10px] font-bold uppercase border border-neutral-800">
+                                    {correspondingCat ? correspondingCat.name : "Unassigned"}
+                                  </span>
+                                  {prod.available ? (
+                                    <span className="text-emerald-500 font-black text-[10px] flex items-center gap-1">
+                                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />In Stock
+                                    </span>
+                                  ) : (
+                                    <span className="text-red-500 font-black text-[10px] flex items-center gap-1">
+                                      <span className="h-1.5 w-1.5 rounded-full bg-red-600" />Out of Stock
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                              <div className="flex flex-col gap-1.5 shrink-0">
+                                <button onClick={() => openEditProductModal(prod)} className="bg-neutral-800 text-gray-300 font-bold py-1.5 px-3 rounded flex items-center gap-1 border border-neutral-700 text-xs">
+                                  <Edit2 className="h-3 w-3" /><span>Edit</span>
+                                </button>
+                                <button onClick={() => handleDeleteProductClick(prod.id, prod.name)} className="bg-red-950/20 text-red-400 font-bold py-1.5 px-3 rounded flex items-center gap-1 text-xs border border-red-900/20">
+                                  <Trash2 className="h-3 w-3" /><span>Purge</span>
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {products.length === 0 && (
+                          <div className="p-8 text-center text-neutral-500 italic font-medium text-xs">
+                            No fitness equipment registered. Tap 'Deploy Gym Gear' above to populate custom inventory logs.
+                          </div>
+                        )}
                       </div>
                     </div>
                   </>
@@ -1171,15 +1212,15 @@ export default function App() {
       {/* ======================================================= */}
       {isCategoryModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-neutral-900 rounded border border-neutral-800 p-6 md:p-8 max-w-lg w-full text-white shadow-2xl relative font-sans">
-            <button 
+          <div className="bg-neutral-900 rounded border border-neutral-800 p-5 md:p-8 max-w-lg w-full text-white shadow-2xl relative font-sans max-h-[90dvh] overflow-y-auto">
+            <button
               onClick={() => setIsCategoryModalOpen(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-white"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="text-xl font-black uppercase tracking-wider mb-2 flex items-center space-x-2">
+            <h3 className="text-base sm:text-xl font-black uppercase tracking-wider mb-2 flex items-center gap-2 flex-wrap">
               <FolderPlus className="h-5 w-5 text-red-500" />
               <span>{editingCategory ? "Alter Category Config" : "Deploy Equipment Category"}</span>
             </h3>
@@ -1205,9 +1246,8 @@ export default function App() {
                 <label className="text-xs font-black uppercase tracking-wider text-gray-400 block mb-2">
                   SEO URL Slug (Auto-Generated)
                 </label>
-                <div className="flex rounded overflow-hidden select-none">
-                  <span className="bg-neutral-950 text-neutral-500 px-3.5 py-3 border border-neutral-800 text-xs font-mono select-none">
-                    /categories/
+                <div className="flex rounded overflow-hidden select-none w-full">
+                  <span className="bg-neutral-950 text-neutral-500 px-2 sm:px-3.5 py-3 border border-neutral-800 text-[10px] sm:text-xs font-mono select-none whitespace-nowrap shrink-0">/categories/
                   </span>
                   <input
                     type="text"
@@ -1252,15 +1292,15 @@ export default function App() {
       {/* ======================================================= */}
       {isProductModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-neutral-900 rounded border border-neutral-800 p-6 md:p-8 max-w-lg w-full text-white shadow-2xl relative font-sans">
-            <button 
+          <div className="bg-neutral-900 rounded border border-neutral-800 p-5 md:p-8 max-w-lg w-full text-white shadow-2xl relative font-sans max-h-[90dvh] overflow-y-auto">
+            <button
               onClick={() => setIsProductModalOpen(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-white"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="text-xl font-black uppercase tracking-wider mb-2 flex items-center space-x-2">
+            <h3 className="text-base sm:text-xl font-black uppercase tracking-wider mb-2 flex items-center gap-2 flex-wrap">
               <Dumbbell className="h-5 w-5 text-red-500" />
               <span>{editingProduct ? "Edit Equipment Spec" : "Catalog Showroom Product"}</span>
             </h3>
@@ -1282,7 +1322,7 @@ export default function App() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-black uppercase tracking-wider text-gray-400 block mb-2">
                     Showroom Price (₦ NGN)
