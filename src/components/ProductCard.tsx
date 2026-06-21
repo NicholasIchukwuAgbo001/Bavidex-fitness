@@ -45,7 +45,7 @@ export default function ProductCard({ product, categoryName }: ProductCardProps)
         />
         
         {/* Soft shadow tint */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80" />
 
         {/* Availability Badge */}
         <div className="absolute top-4 right-4 z-10 flex flex-col items-end space-y-1">
@@ -71,7 +71,7 @@ export default function ProductCard({ product, categoryName }: ProductCardProps)
         )}
       </div>
 
-      <div className="p-5 flex flex-col flex-grow bg-neutral-900">
+      <div className="p-5 flex flex-col grow bg-neutral-900">
         <h3 className="text-sm font-black text-white hover:text-red-500 transition-colors uppercase tracking-wide leading-tight line-clamp-2 h-10 mb-2">
           {product.name}
         </h3>

@@ -20,7 +20,7 @@ export default function CategoryCard({ category, onNavigate, productCount }: Cat
   const imgUrl = category.image_url || "/images/athlete.svg";
 
   return (
-    <motion.div 
+    <motion.div
       id={`cat-card-${category.id}`}
       onClick={() => onNavigate(`#/categories/${category.slug}`)}
       initial={{ opacity: 0, y: 30 }}
@@ -31,14 +31,14 @@ export default function CategoryCard({ category, onNavigate, productCount }: Cat
       className="group relative h-80 w-full overflow-hidden rounded bg-neutral-900 border border-neutral-800 cursor-pointer shadow-lg select-none"
     >
       {/* Background Graphic Zoom-In */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
         style={{ backgroundImage: `url(${imgUrl})` }}
       />
-      
+
       {/* Absolute Dark Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-300 group-hover:via-black/50" />
-      
+      <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent transition-all duration-300 group-hover:via-black/50" />
+
       {/* Subtle top red border indicator on hover */}
       <div className="absolute top-0 left-0 w-full h-[3px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
@@ -59,8 +59,8 @@ export default function CategoryCard({ category, onNavigate, productCount }: Cat
               {category.name}
             </h3>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             whileTap={{ scale: 0.9 }}
             className="bg-white/10 group-hover:bg-red-600 text-white p-2.5 rounded transition-colors duration-300"
           >

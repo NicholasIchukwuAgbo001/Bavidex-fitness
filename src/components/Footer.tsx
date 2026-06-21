@@ -15,7 +15,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     <footer id="bavidex-bottom-footer" className="bg-black border-t border-neutral-800 text-gray-400 py-12 mt-auto font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-neutral-900">
-          
+
           {/* Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -36,7 +36,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
           {/* Showroom Contact Coordinates */}
           <div className="space-y-3">
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest text-red-500">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-red-500">
               Lagos Flagship Showroom
             </h4>
             <ul className="text-sm space-y-2">
@@ -57,11 +57,11 @@ export default function Footer({ onNavigate }: FooterProps) {
 
           {/* Showroom Context Rules (NOT E-Commerce) */}
           <div className="space-y-3">
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest text-red-500">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-red-500">
               Shopper Warning Notice
             </h4>
             <div className="bg-neutral-950 p-4 border border-neutral-900 rounded space-y-2">
-              <div className="flex items-center space-x-2 text-white text-xs font-bold uppercase tracking-wider text-red-400">
+              <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-red-400">
                 <ShieldCheck className="h-3.5 w-3.5 text-red-500" />
                 <span>Public Showroom Only</span>
               </div>
@@ -75,8 +75,8 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-600">
           <p>Designed as a premium Gym equipment CMS showcasing absolute performance.</p>
-          <button 
-            onClick={() => onNavigate("#/admin/login")} 
+          <button
+            onClick={() => onNavigate("#/admin/login")}
             className="mt-2 sm:mt-0 text-neutral-500 hover:text-red-500 transition-colors uppercase font-bold tracking-widest text-[10px]"
           >
             Authorized Store Admin Login

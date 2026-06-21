@@ -337,7 +337,7 @@ export default function App() {
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.9 }}
-            className="fixed top-24 right-4 md:right-8 z-[100] max-w-sm pointer-events-auto"
+            className="fixed top-24 right-4 md:right-8 z-100 max-w-sm pointer-events-auto"
           >
             <div className={`p-4 rounded-lg shadow-2xl border flex items-start space-x-3 ${toastMessage.type === "success"
                 ? "bg-neutral-900 border-emerald-500/30 text-emerald-400"
@@ -355,7 +355,7 @@ export default function App() {
 
       {/* Top Banner indicating Sandbox State */}
       {showDemoBanner && (
-        <div className="bg-gradient-to-r from-red-950 via-black to-red-950 text-[11px] py-2 px-4 border-b border-red-900/40 relative flex items-center justify-between gap-2">
+        <div className="bg-linear-to-r from-red-950 via-black to-red-950 text-[11px] py-2 px-4 border-b border-red-900/40 relative flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 flex-wrap min-w-0">
             <span className="inline-block h-2 w-2 shrink-0 rounded-full bg-red-600 animate-pulse" />
             <span className="text-gray-300 font-medium hidden sm:inline">
@@ -383,9 +383,9 @@ export default function App() {
       <Navbar currentPath={currentPath} onNavigate={handleNavigate} categories={categories} />
 
       {/* Main Container Core Router */}
-      <main className="flex-grow flex flex-col">
+      <main className="grow flex flex-col">
         {loading ? (
-          <div className="flex-grow flex flex-col items-center justify-center py-24 space-y-4">
+          <div className="grow flex flex-col items-center justify-center py-24 space-y-4">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600" />
             <span className="font-mono text-xs text-neutral-500 uppercase tracking-[0.2em] animate-pulse">
               Buffering Showroom Inventory...
@@ -400,18 +400,18 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex flex-col flex-grow"
+                className="flex flex-col grow"
               >
                 {/* Immersive Hero Banner with Real Gym Background */}
                 <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-neutral-950">
                   <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-102 filter grayscale hover:grayscale-0 transition-all duration-[2000ms]"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-102 filter grayscale hover:grayscale-0 transition-all duration-2000"
                     style={{ backgroundImage: "url('/images/hero_bg.jpg')" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/30 to-black pointer-events-none" />
 
                   {/* Subtle dynamic backdrop layout animation lines */}
-                  <div className="absolute inset-0 block bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-600/5 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 block bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-red-600/5 via-transparent to-transparent pointer-events-none" />
 
                   <div className="relative z-10 text-center px-4 max-w-4xl tracking-tight">
                     <motion.div
@@ -635,7 +635,7 @@ export default function App() {
                           className="absolute inset-0 bg-cover bg-center opacity-30 brightness-75 filter grayscale"
                           style={{ backgroundImage: `url(${activeCat.image_url})` }}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-linear-to-r from-black via-black/85 to-transparent pointer-events-none" />
 
                         <div className="relative z-10 max-w-xl">
                           <span className="text-red-500 font-extrabold text-[10px] uppercase tracking-[0.25em] block mb-2">
@@ -701,7 +701,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="py-16 px-4 flex flex-col justify-center items-center flex-grow bg-neutral-950"
+                className="py-16 px-4 flex flex-col justify-center items-center grow bg-neutral-950"
               >
                 <div className="max-w-md w-full bg-neutral-900 border border-neutral-800 rounded p-8 shadow-2xl relative overflow-hidden font-sans">
 
@@ -768,7 +768,7 @@ export default function App() {
 
                   {/* Sandbox helper credentials panel */}
                   <div className="mt-8 pt-6 border-t border-neutral-800 text-center">
-                    <p className="text-[11px] text-neutral-400 uppercase tracking-widest font-black text-red-500/80 mb-2">
+                    <p className="text-[11px] uppercase tracking-widest font-black text-red-500/80 mb-2">
                       Evaluation Demo Access Instructions:
                     </p>
                     <div className="bg-black/40 text-[11px] text-neutral-400/95 py-2 px-3 rounded text-center leading-relaxed border border-neutral-800/60 inline-block w-full">
@@ -812,7 +812,7 @@ export default function App() {
                           <CheckCircle className="h-4 w-4 text-emerald-500" />
                           <span>Authorized Management Console</span>
                         </div>
-                        <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mt-1 break-words">Terminal Hub Control
+                        <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mt-1 wrap-break-word">Terminal Hub Control
                         </h1>
                       </div>
 
@@ -934,7 +934,7 @@ export default function App() {
                         <button onClick={() => handleNavigate("#/admin/dashboard")} className="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-red-500 transition-colors">
                           &larr; Return to Dashboard Hub
                         </button>
-                        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mt-1 break-words">Showroom Category Editor
+                        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mt-1 wrap-break-word">Showroom Category Editor
                         </h1>
                       </div>
 
@@ -1061,7 +1061,7 @@ export default function App() {
                         <button onClick={() => handleNavigate("#/admin/dashboard")} className="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-red-500 transition-colors">
                           &larr; Return to Dashboard Hub
                         </button>
-                        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mt-1 break-words">Showroom Inventory Manager
+                        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mt-1 wrap-break-word">Showroom Inventory Manager
                         </h1>
                       </div>
 
@@ -1211,7 +1211,7 @@ export default function App() {
       {/* 📂 CATEGORY MODAL DIALOG POPUP */}
       {/* ======================================================= */}
       {isCategoryModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
           <div className="bg-neutral-900 rounded border border-neutral-800 p-5 md:p-8 max-w-lg w-full text-white shadow-2xl relative font-sans max-h-[90dvh] overflow-y-auto">
             <button
               onClick={() => setIsCategoryModalOpen(false)}
@@ -1291,7 +1291,7 @@ export default function App() {
       {/* 📂 PRODUCT MODAL DIALOG POPUP */}
       {/* ======================================================= */}
       {isProductModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
           <div className="bg-neutral-900 rounded border border-neutral-800 p-5 md:p-8 max-w-lg w-full text-white shadow-2xl relative font-sans max-h-[90dvh] overflow-y-auto">
             <button
               onClick={() => setIsProductModalOpen(false)}
@@ -1402,7 +1402,7 @@ export default function App() {
       {/* ⚠️ CUSTOM IN-APP DELETE CONFIRMATION DIALOG */}
       {/* ======================================================= */}
       {deleteTarget && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+        <div className="fixed inset-0 z-110 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
           <div className="bg-neutral-900 rounded border border-neutral-800 p-6 md:p-8 max-w-md w-full text-white shadow-2xl relative font-sans">
             <h3 className="text-lg font-black uppercase tracking-wider mb-2 text-red-500 flex items-center space-x-2">
               <span className="p-1 bg-red-500/10 rounded mr-1">⚠️</span>

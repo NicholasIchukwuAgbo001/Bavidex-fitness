@@ -187,7 +187,7 @@ CREATE POLICY "All public access to products images"
           </div>
 
           <div className="relative bg-neutral-950 p-4 rounded border border-neutral-800">
-            <pre className="font-mono text-[10px] text-gray-300 overflow-x-auto max-h-72 leading-relaxed whitespace-pre-wrap break-words">
+            <pre className="font-mono text-[10px] text-gray-300 overflow-x-auto max-h-72 leading-relaxed whitespace-pre-wrap overflow-wrap-break-word">
               {postgresSQL}
             </pre>
           </div>
@@ -201,7 +201,7 @@ CREATE POLICY "All public access to products images"
 
       {activeTab === "buckets" && (
         <div className="space-y-4 text-sm text-neutral-300 leading-relaxed">
-          <h3 className="font-bold text-white uppercase tracking-wider text-xs text-red-500">
+          <h3 className="font-bold uppercase tracking-wider text-xs text-red-500">
             Supabase Storage Buckets Setup Guide
           </h3>
           <p className="text-xs">
