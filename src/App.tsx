@@ -403,7 +403,7 @@ export default function App() {
                 className="flex flex-col grow"
               >
                 {/* Immersive Hero Banner with Real Gym Background */}
-                <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-neutral-950">
+                <section className="relative min-h-[60vh] md:h-[90vh] flex items-center justify-center overflow-hidden bg-neutral-950 py-16 md:py-0">
                   <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-102 filter grayscale hover:grayscale-0 transition-all duration-2000"
                     style={{ backgroundImage: "url('/images/hero_bg.jpg')" }}
@@ -463,7 +463,7 @@ export default function App() {
                 </section>
 
                 {/* SHOWROOM CATALOG NAVIGATION BAR */}
-                <section id="categories-catalogue" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <section id="categories-catalogue" className="py-10 sm:py-14 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="text-center md:text-left md:flex md:items-end md:justify-between mb-12">
                     <div>
                       <span className="text-red-500 text-xs font-black uppercase tracking-widest">

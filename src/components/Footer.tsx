@@ -36,7 +36,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
           {/* Showroom Contact Coordinates */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-red-500">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-red-500 font-sans">
               Lagos Flagship Showroom
             </h4>
             <ul className="text-sm space-y-2">
@@ -62,7 +62,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             </h4>
             <div className="bg-neutral-950 p-4 border border-neutral-900 rounded space-y-2">
               <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-red-400">
-                <ShieldCheck className="h-3.5 w-3.5 text-red-500" />
+                <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
                 <span>Public Showroom Only</span>
               </div>
               <p className="text-[11px] text-neutral-400 leading-relaxed">
