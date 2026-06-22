@@ -25,9 +25,10 @@ export default function ProductCard({ product, categoryName }: ProductCardProps)
   };
 
   const imgUrl = product.image_url || "/images/dumbbells.svg";
+  const isSvg = imgUrl.endsWith(".svg");
 
   return (
-    <motion.div 
+    <motion.div
       id={`prod-card-${product.id}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -36,14 +37,17 @@ export default function ProductCard({ product, categoryName }: ProductCardProps)
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
       className="group bg-neutral-900 border border-neutral-800 rounded overflow-hidden flex flex-col hover:border-neutral-700/60 shadow-xl"
     >
-      <div className="relative h-64 overflow-hidden bg-neutral-950">
-        <img 
-          src={imgUrl} 
+      <div className="relative h-64 overflow-hidden bg-neutral-950 flex items-center justify-center">
+        <img
+          src={imgUrl}
           alt={product.name}
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className={`transition-transform duration-500 group-hover:scale-105 ${isSvg
+              ? "w-full h-full object-contain p-8 opacity-80"
+              : "w-full h-full object-cover object-center"
+            }`}
         />
-        
+
         {/* Soft shadow tint */}
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80" />
 
@@ -75,7 +79,7 @@ export default function ProductCard({ product, categoryName }: ProductCardProps)
         <h3 className="text-sm font-black text-white hover:text-red-500 transition-colors uppercase tracking-wide leading-tight line-clamp-2 h-10 mb-2">
           {product.name}
         </h3>
-        
+
         <div className="w-full h-px bg-neutral-800/80 my-3" />
 
         <div className="flex items-center justify-between mt-auto">
@@ -87,7 +91,7 @@ export default function ProductCard({ product, categoryName }: ProductCardProps)
               {formatPrice(product.price)}
             </span>
           </div>
-          
+
           <div className="text-right">
             <span className="text-[10px] text-gray-500 uppercase tracking-widest block font-bold">
               Bavidex Certified

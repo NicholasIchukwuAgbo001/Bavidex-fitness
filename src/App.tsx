@@ -428,7 +428,7 @@ export default function App() {
                       initial={{ opacity: 0, y: 35 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2, duration: 0.6 }}
-                      className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-black tracking-tighter text-white uppercase leading-none"
+                      className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-sans font-black tracking-tighter text-white uppercase leading-none"
                     >
                       Bavidex <span className="text-red-600 text-glow">Fitness</span>
                     </motion.h1>
@@ -464,19 +464,19 @@ export default function App() {
 
                 {/* SHOWROOM CATALOG NAVIGATION BAR */}
                 <section id="categories-catalogue" className="py-10 sm:py-14 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="text-center md:text-left md:flex md:items-end md:justify-between mb-12">
-                    <div>
+                  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                    <div className="shrink-0">
                       <span className="text-red-500 text-xs font-black uppercase tracking-widest">
                         High-Performance Assets
                       </span>
-                      <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white mt-1 leading-none">
-                        Equipment <br className="hidden md:block" />Categories
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mt-1 leading-none">
+                        Equipment Categories
                       </h2>
                       <div className="h-1 w-20 bg-red-600 mt-2 rounded" />
                     </div>
 
                     {/* Live search input box */}
-                    <div className="mt-6 md:mt-0 relative max-w-md w-full">
+                    <div className="relative w-full md:max-w-sm lg:max-w-md">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                         <Search className="h-4 w-4 text-neutral-500" />
                       </div>
@@ -484,7 +484,7 @@ export default function App() {
                         type="text"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Search treadmills, exercise bikes, soccer tables..."
+                        placeholder="Search treadmills, exercise bikes..."
                         className="bg-neutral-900 text-neutral-300 placeholder-neutral-500 text-xs rounded border border-neutral-800 pl-10 pr-4 py-3.5 w-full focus:outline-none focus:ring-1 focus:ring-red-600 focus:border-red-600"
                       />
                     </div>
